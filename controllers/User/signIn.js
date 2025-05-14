@@ -8,31 +8,40 @@ const signInController = async (req, res) => {
 
     const user = await UserModel.findOne({ email })
     if (!user) {
-      res.status(404).json({
+      return res.status(404).json({
         message: 'user Not Found 😒😒',
         error: true,
         success: false,
       })
-      throw new Error('user Not Found 😒😒')
     }
-  
- const checkPassword = bcrypt.compareSync(password, user.password)
+    if (!user?.verify_email) {
+      return res.status(400).json({
+        message: 'please verify your account first 🥱🥱',
+        error: true,
+        success: false,
+      })
+    }
 
- if(checkPassword){
-    const tokenData = {
-        _id : user._id,
-        email : user.email,
-        gender : user.gender,
-        role : user.role
-    }
-    const tokenOption = {
-      httpOnly : true,
-      secure : true,
-      sameSite: 'None'
-  }
-    const token = await  jwt.sign(tokenData, process.env.JWT_SECRET, { expiresIn: 60 * 60 * 8 });
-    
-    res.status(200).cookie('token', token, tokenOption).json({
+
+    const checkPassword = bcrypt.compareSync(password, user.password)
+
+    if (checkPassword) {
+      const tokenData = {
+        _id: user._id,
+        email: user.email,
+        gender: user.gender,
+        role: user.role,
+      }
+      const tokenOption = {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None',
+      }
+      const token = await jwt.sign(tokenData, process.env.JWT_SECRET, {
+        expiresIn: 60 * 60 * 8,
+      })
+
+      res.status(200).cookie('token', token, tokenOption).json({
         data: token,
         success: true,
         error: false,

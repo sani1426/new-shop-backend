@@ -42,7 +42,7 @@ const signUpController = async (req, res) => {
       }),
     })
 
-   return res.status(201).json({
+    return res.status(201).json({
       data: newUser,
       success: true,
       error: false,
@@ -58,3 +58,37 @@ const signUpController = async (req, res) => {
 }
 
 export default signUpController
+
+export const verifyEmailController = async (req, res) => {
+  try {
+    const { code } = req.body
+    const user = await UserModel.findOne({ _id: code })
+
+    if (!user) {
+      return res.status(400).json({
+        message: 'invalid code',
+        error: true,
+        success: false,
+      })
+    }
+
+    const updateUser = await UserModel.updateOne(
+      { _id: code },
+      {
+        verify_email: true,
+      }
+    )
+
+    return res.status(200).json({
+      message: 'verify Email Done',
+      error: false,
+      success: true,
+    })
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      error: true,
+      message: 'Server Error 😡😡😡',
+    })
+  }
+}
