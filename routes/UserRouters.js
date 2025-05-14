@@ -1,6 +1,7 @@
 import express from 'express'
-import signUpController, { verifyEmailController } from '../controllers/User/signUp.js'
+import signUpController from '../controllers/User/signUp.js'
 import signInController from '../controllers/User/signIn.js'
+import verifyEmailController from '../controllers/User/veifyEmail.js'
 
 const router = express.Router()
 
