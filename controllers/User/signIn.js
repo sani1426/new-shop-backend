@@ -20,9 +20,6 @@ const signInController = async (req, res) => {
     if (checkPassword) {
       const tokenData = {
         _id: user._id,
-        email: user.email,
-        gender: user.gender,
-        role: user.role,
       }
       const tokenOption = {
         httpOnly: true,
