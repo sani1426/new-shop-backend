@@ -14,14 +14,6 @@ const signInController = async (req, res) => {
         success: false,
       })
     }
-    if (!user?.verify_email) {
-      return res.status(400).json({
-        message: 'please verify your account first 🥱🥱',
-        error: true,
-        success: false,
-      })
-    }
-
 
     const checkPassword = bcrypt.compareSync(password, user.password)
 

@@ -28,10 +28,7 @@ const userSchema = new Schema({
         enum : ['customer' , 'admin'],
         default : 'customer'
     },
-    verify_email : {
-        type : Boolean ,
-        default : false
-    },
+
 },{
     timestamps : true
 })

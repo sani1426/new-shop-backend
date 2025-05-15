@@ -1,6 +1,6 @@
-import sendEmail from '../../config/sendEmail.js'
+
 import UserModel from '../../models/User.js'
-import verifyEmailTemplate from '../../utils/verifyEmailTemplate.js'
+
 
 const signUpController = async (req, res) => {
   try {
@@ -31,16 +31,16 @@ const signUpController = async (req, res) => {
     })
     const newUser = await user.save()
 
-    const verifyEmailUrl = ` ${process.env.FRONTEND_URL}/verify-email/${newUser?._id} `
+    // const verifyEmailUrl = ` ${process.env.FRONTEND_URL}/verify-email/${newUser?._id} `
 
-    const verifyEmail = await sendEmail({
-      sendTo: email,
-      subject: 'verify email from newShop',
-      html: verifyEmailTemplate({
-        name,
-        url: verifyEmailUrl,
-      }),
-    })
+    // const verifyEmail = await sendEmail({
+    //   sendTo: email,
+    //   subject: 'verify email from newShop',
+    //   html: verifyEmailTemplate({
+    //     name,
+    //     url: verifyEmailUrl,
+    //   }),
+    // })
 
     return res.status(201).json({
       data: newUser,
