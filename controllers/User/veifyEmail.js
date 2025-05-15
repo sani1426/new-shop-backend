@@ -2,15 +2,9 @@ import UserModel from '../../models/User.js'
 
 const verifyEmailController = async (req, res) => {
   try {
-    const { id } = req.body
+    const { id  } = req.body
 
-    const user = await UserModel.findByIdAndUpdate(
-      id,
-      {
-        verify_email: true,
-      },
-      { new: true }
-    )
+    const user = await UserModel.findOne({_id : id})
 
     if (!user) {
       return res.status(400).json({
