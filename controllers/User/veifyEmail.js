@@ -15,13 +15,14 @@ const verifyEmailController = async (req, res) => {
         })
       }
       console.log(user);
+ 
   
-      // const updateUser = await UserModel.updateOne(
-      //   { _id: id },
-      //   {
-      //     verify_email: true,
-      //   }
-      // )
+      const updateUser = await UserModel.updateOne(
+        { _id: id },
+        {
+          verify_email: true,
+        }
+      )
   
       return res.status(200).json({
         message: 'verify Email Done',
