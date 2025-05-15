@@ -4,8 +4,8 @@ import UserModel from "../../models/User"
 
 const verifyEmailController = async (req, res) => {
     try {
-      const { code } = req.body
-      const user = await UserModel.findOne({ _id: code })
+      const { id } = req.body
+      const user = await UserModel.findOne({ _id: id })
   
       if (!user) {
         return res.status(400).json({
@@ -16,7 +16,7 @@ const verifyEmailController = async (req, res) => {
       }
   
       const updateUser = await UserModel.updateOne(
-        { _id: code },
+        { _id: id },
         {
           verify_email: true,
         }

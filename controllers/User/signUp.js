@@ -31,7 +31,7 @@ const signUpController = async (req, res) => {
     })
     const newUser = await user.save()
 
-    const verifyEmailUrl = ` ${process.env.FRONTEND_URL}/verify-email?code=${newUser?._id} `
+    const verifyEmailUrl = ` ${process.env.FRONTEND_URL}/verify-email/${newUser?._id} `
 
     const verifyEmail = await sendEmail({
       sendTo: email,
