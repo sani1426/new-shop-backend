@@ -6,10 +6,7 @@ const verifyEmailController = async (req, res) => {
     try {
       const { id } = req.body
       const payload = {
-        ...(email && { email: email }),
-        ...(name && { name: name }),
-        ...(gender && { gender: gender }),
-        ...(role && { role: role }),
+
         verify_email: true,
       }
 
