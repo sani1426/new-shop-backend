@@ -25,6 +25,7 @@ const verifyEmailController = async (req, res) => {
       )
   
       return res.status(200).json({
+        data : updateUser ,
         message: 'verify Email Done',
         error: false,
         success: true,
