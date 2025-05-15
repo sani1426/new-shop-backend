@@ -1,6 +1,4 @@
-
 import UserModel from '../../models/User.js'
-
 
 const signUpController = async (req, res) => {
   try {
@@ -31,17 +29,6 @@ const signUpController = async (req, res) => {
     })
     const newUser = await user.save()
 
-    // const verifyEmailUrl = ` ${process.env.FRONTEND_URL}/verify-email/${newUser?._id} `
-
-    // const verifyEmail = await sendEmail({
-    //   sendTo: email,
-    //   subject: 'verify email from newShop',
-    //   html: verifyEmailTemplate({
-    //     name,
-    //     url: verifyEmailUrl,
-    //   }),
-    // })
-
     return res.status(201).json({
       data: newUser,
       success: true,
@@ -58,5 +45,3 @@ const signUpController = async (req, res) => {
 }
 
 export default signUpController
-
-
