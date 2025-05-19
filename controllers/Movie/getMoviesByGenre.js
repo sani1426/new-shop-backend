@@ -6,7 +6,7 @@ const getMoviesByGenreController = async (req , res) => {
 
     try {
         pageSize = 10 ;
-        pageNumber = req.searchparams.pageNumber ;
+        pageNumber = await  req.searchparams.pageNumber ;
         console.log(pageNumber);
 
         return res.status(200).json({
