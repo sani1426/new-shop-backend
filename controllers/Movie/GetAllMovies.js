@@ -5,6 +5,7 @@ import MovieModel from "../../models/Movie.js"
 const getAllMoviesController = async (req , res) => {
 
     try {
+  
         const allMovies = await MovieModel.find().sort({
             createdAt : -1
         })
