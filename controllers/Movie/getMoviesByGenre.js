@@ -9,7 +9,12 @@ const getMoviesByGenreController = async (req , res) => {
         pageNumber = req.searchparams.pageNumber ;
         console.log(pageNumber);
 
- 
+        return res.status(200).json({
+            success: false,
+            error: true,
+            message: 'Server Error 😡😡😡',
+            data : pageNumber
+          })
         
     } catch (error) {
         return res.status(500).json({
