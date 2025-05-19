@@ -4,6 +4,7 @@ import cors from 'cors'
 import ConnectToDb from './config/db.js'
 import cookieParser from 'cookie-parser'
 import userRouter from './routes/UserRouters.js'
+import movieRouter from './routes/MoviesRouters.js'
 import helmet from 'helmet'
 
 dotenv.config()
@@ -27,6 +28,7 @@ app.use(helmet({
 
 
 app.use("/api/users" , userRouter)
+app.use("/api/movies" , movieRouter)
 
 
 
