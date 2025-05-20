@@ -9,7 +9,7 @@ const getHeroMoviesController = async (req, res) => {
     return res.status(200).json({
       success: true,
       error: false,
-      message: 'Successfully',
+      message: 'Successfully get movies ✨✨✨',
       data: movies,
     })
   } catch (error) {
