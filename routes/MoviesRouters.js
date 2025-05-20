@@ -6,7 +6,7 @@ import getMoviesByGenreController from '../controllers/Movie/getMoviesByGenre.js
 const router = express.Router()
 
 router.get('/' , getAllMoviesController)
-router.get('/pagination' , getMoviesByGenreController)
+router.get('/genres' , getMoviesByGenreController)
 
 
 export default router
