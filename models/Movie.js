@@ -14,8 +14,11 @@ const movieSchema = new Schema(
     year: {
       type: String,
     },
-    movieImage: {
-      type: String,
+    backdrop : {
+      type : String
+    },
+    movieImages: {
+      type: [String],
       required: true,
     },
     rating: {
