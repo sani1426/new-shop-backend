@@ -1,30 +1,28 @@
-import MovieModel from "../../models/Movie.js"
+import MovieModel from '../../models/Movie.js'
 
+const getMoviesByCategoryController = async (req, res) => {
+  try {
+    const { pageNumber } = req.query || 1
+    const pageSize = 8
+    const { category } = await req.params
 
+    const allMovies = await MovieModel.find({ category: category })
+      .skip((pageNumber - 1) * pageSize)
+      .limit(pageSize)
 
-const getAllMoviesController = async (req , res) => {
-
-    try {
-  
-        const allMovies = await MovieModel.find().sort({
-            createdAt : -1
-        })
-
-      return  res.status(200).json({
-            success: true,
-            error: false,
-            message: 'Successfully get  all Movies',
-            data : allMovies
-          })
-        
-    } catch (error) {
-       return res.status(500).json({
-            success: false,
-            error: true,
-            message: 'Server Error 😡😡😡',
-          })
-    }
+    return res.status(200).json({
+      success: true,
+      error: false,
+      message: 'Successfully get  your Movies',
+      data: allMovies,
+    })
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      error: true,
+      message: 'Server Error 😡😡😡',
+    })
+  }
 }
 
-
-export default getAllMoviesController
+export default getMoviesByCategoryController

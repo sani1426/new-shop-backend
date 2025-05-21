@@ -1,6 +1,7 @@
 export const Movies = [
   {
     name: 'Code 8: Part II 2024',
+    category : 'movie',
     genres: ['اکشن' , 'جنایی' , 'علمی تخیلی' , 'هیجان انگیز'],
     year : '2024',
     backdrop : '/images/movies/code8-backdrop.webp',
@@ -18,6 +19,7 @@ export const Movies = [
   },
   {
     name: 'Lucy 2014',
+    category : 'movie',
     genres: ['اکشن' , 'علمی تخیلی' , 'هیجان انگیز'],
     year : '2014',
     backdrop : '/images/movies/lucy-backdrop.webp',
@@ -35,6 +37,7 @@ export const Movies = [
   },
   {
     name: 'Legends of the Condor Heroes: The Gallants 2025',
+    category : 'movie',
     genres: ['اکشن' , 'درام' , 'ماجراجویی'],
     year : '2025',
     backdrop: '/images/movies/Legends of the Condor Heroes-backdrop.webp',
@@ -52,6 +55,7 @@ export const Movies = [
   },
   {
     name: 'Superman 2025',
+    category : 'movie',
     genres: ['اکشن' , 'فانتزی' , 'ماجراجویی'],
     year : '2025',
     backdrop : '/images/movies/superman2025-backdrop.webp',
@@ -69,6 +73,7 @@ export const Movies = [
   },
   {
     name: 'The Hobbit: The Battle of the Five Armies 2014',
+    category : 'movie',
     genres: [ 'فانتزی' , 'ماجراجویی'],
     year : '2014',
     backdrop : '/images/movies/The Hobbit The Battle of the Five Armies-backdrop.webp' ,
@@ -86,6 +91,7 @@ export const Movies = [
   },
   {
     name: '*Thunderbolts 2025',
+    category : 'movie',
     genres: [ 'جنایی' , 'ماجراجویی' , 'اکشن'],
     year : '2025',
     backdrop : '/images/movies/Thunderbolts 2025-backdrop.webp' ,
@@ -103,6 +109,7 @@ export const Movies = [
   },
   {
     name: 'The Marvels 2023',
+    category : 'movie',
     genres: [ 'فانتزی' , 'ماجراجویی' , 'اکشن'],
     year : '2023',
     backdrop : '/images/movies/marvels-backdrop.webp' ,
@@ -120,6 +127,7 @@ export const Movies = [
   },
   {
     name: 'Snow White 2025',
+    category : 'movie',
     genres: [ 'فانتزی' , 'ماجراجویی' , 'اکشن','خانوادگی' , 'عاشقانه', 'موزیکال'],
     year : '2025',
     backdrop : '/images/movies/snowwhite-backdrop.webp' ,
@@ -137,6 +145,7 @@ export const Movies = [
   },
   {
     name: 'Rosario 2025',
+    category : 'movie',
     genres: [ 'ترسناک' ],
     year : '2025',
     backdrop : '/images/movies/Rosario-backdrop.webp' ,
@@ -154,6 +163,7 @@ export const Movies = [
   },
   {
     name: 'Death of a Unicorn 2025',
+    category : 'movie',
     genres: [ 'ترسناک' , 'فانتزی' , 'کمدی' ],
     year : '2025',
     backdrop : '/images/movies/Death of a Unicorn-backdrop.webp' ,
