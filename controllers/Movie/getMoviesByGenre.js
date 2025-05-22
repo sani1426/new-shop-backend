@@ -2,9 +2,13 @@ import MovieModel from '../../models/Movie.js'
 
 const getMoviesByGenreController = async (req, res) => {
   try {
-    const { genre}  = await req.query
+    const { genre } = await req.query
+    const { pageNumber } = req.query || 1
+    const pageSize = 8
 
     const movies = await MovieModel.find({ genres: { $in: [genre] } })
+      .skip((pageNumber - 1) * pageSize)
+      .limit(pageSize)
 
     if (movies) {
       return res.status(200).json({
