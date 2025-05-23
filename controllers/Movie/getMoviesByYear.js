@@ -4,7 +4,7 @@ const getMoviesByYearController = async (req, res) => {
   try {
     const { year } = await req.query
     const { pageNumber } = await req.query
-    const pageSize = 2
+    const pageSize = 8
 
     const Movies = await MovieModel.find({ year: year }).skip((pageNumber - 1) * pageSize)
       .limit(pageSize)
