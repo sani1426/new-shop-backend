@@ -4,6 +4,7 @@ import getHeroMoviesController from '../controllers/Movie/getHeroMovies.js'
 import getMoviesByCategoryController from '../controllers/Movie/GetAllMovies.js'
 import getMovieDetailsController from '../controllers/Movie/getMovieDetails.js'
 import getSimilarMoviesController from '../controllers/Movie/getSimilarMovies.js'
+import getMoviesByYearController from '../controllers/Movie/getMoviesByYear.js'
 
 const router = express.Router()
 
@@ -12,5 +13,6 @@ router.get('/genres', getMoviesByGenreController)
 router.get('/hero-movies', getHeroMoviesController)
 router.get('/details/:id', getMovieDetailsController)
 router.post('/similar-movies', getSimilarMoviesController)
+router.get('/date', getMoviesByYearController)
 
 export default router
