@@ -15,7 +15,9 @@ const getSimilarMoviesController = async (req, res) => {
 
     if (movie) {
       const similarMovies = await MovieModel.find({
+        _id : { $ne:  movieId} ,
         genres: { $in: [movie?.genres[0] , movie?.genres[1]] },
+
       })
         .sort({ rating: -1 })
         .limit(5)
