@@ -7,10 +7,10 @@ const movieSchema = new Schema(
       trim: true,
       required: true,
     },
-    category : {
-      type : String ,
-      required : true ,
-      enum : ['movie' , 'tv']
+    category: {
+      type: String,
+      required: true,
+      enum: ['movie', 'tv'],
     },
     genres: {
       type: [String],
@@ -19,8 +19,8 @@ const movieSchema = new Schema(
     year: {
       type: String,
     },
-    backdrop : {
-      type : String
+    backdrop: {
+      type: String,
     },
     movieImages: {
       type: [String],
@@ -30,6 +30,10 @@ const movieSchema = new Schema(
       type: Number,
       default: 0,
     },
+    season: {
+      type: Number,
+    },
+    episode: { type: Number },
     duration: {
       type: Number,
       default: 0,
