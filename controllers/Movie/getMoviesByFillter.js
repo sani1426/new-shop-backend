@@ -2,8 +2,9 @@ import MovieModel from '../../models/Movie.js'
 
 const getMoviesByFillter = async (req, res) => {
   try {
-    const { category, genres, year, sortBy, limit, search } = req.query
+    const { category, genres, year, sortBy, limit, search , pageNumber } = req.query
 
+    let pageSize = 8 ;
     let query = {}
 
     if (category) {
@@ -22,13 +23,13 @@ const getMoviesByFillter = async (req, res) => {
     let sort = {}
     if (sortBy) {
       switch (sortBy) {
-        case 'جدیدترین':
+        case 'newest':
           sort = { createdAt: -1 }
           break
-        case 'محبوب ترین':
+        case 'popular':
           sort = { likes: -1 }
           break
-        case 'بالاترین امتیاز':
+        case 'topRated':
           sort = { rating: -1 }
           break
         default:
@@ -37,7 +38,7 @@ const getMoviesByFillter = async (req, res) => {
     }
 
     let Movies = await MovieModel.find(query)
-      .sort(sort)
+      .sort(sort).skip((pageNumber -1) * pageSize)
       .limit(limit || 8)
     return res.status(200).json({
       success: true,

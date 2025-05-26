@@ -2,7 +2,7 @@ import MovieModel from '../../models/Movie.js'
 
 const getHeroMoviesController = async (req, res) => {
   try {
-    const movies = await MovieModel.find().sort({ rating: -1 }).limit(5)
+    const movies = await MovieModel.find().sort({ rating: -1 }).limit(6)
 
     return res.status(200).json({
       success: true,
