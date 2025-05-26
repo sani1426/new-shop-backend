@@ -17,10 +17,11 @@ const getSimilarMoviesController = async (req, res) => {
       const similarMovies = await MovieModel.find({
         _id : { $ne:  movieId} ,
         genres: { $in: [movie?.genres[0] , movie?.genres[1]] },
+        category : movie?.category
 
       })
         .sort({ rating: -1 })
-        .limit(5)
+        .limit(7)
 
       return res.status(200).json({
         success: true,

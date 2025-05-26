@@ -4,7 +4,7 @@ const getMoviesByCategoryController = async (req, res) => {
   try {
     const { pageNumber } = req.query || 1
     const pageSize = 8
-    const { category } = await req.params || "movie"
+    const { category } = await req.params 
 
     const allMovies = await MovieModel.find({ category: category }).skip((pageNumber - 1) * pageSize)
       .limit(pageSize)
