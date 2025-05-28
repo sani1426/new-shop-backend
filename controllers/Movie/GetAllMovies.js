@@ -8,12 +8,14 @@ const getMoviesByCategoryController = async (req, res) => {
 
     const allMovies = await MovieModel.find({ category: category }).skip((pageNumber - 1) * pageSize)
       .limit(pageSize)
+      const totalDocument = await MovieModel.countDocuments({category: category})
 
     return res.status(200).json({
       success: true,
       error: false,
       message: 'Successfully get  your Movies ✨✨✨',
       data: allMovies,
+      totalDocument :totalDocument
     })
   } catch (error) {
     return res.status(500).json({

@@ -40,10 +40,12 @@ const getMoviesByFillter = async (req, res) => {
     let Movies = await MovieModel.find(query)
       .sort(sort).skip((pageNumber -1) * pageSize)
       .limit(limit || 8)
+    
     return res.status(200).json({
       success: true,
       error: false,
       message: 'Successfully filltered ✨✨✨',
+      totalDocument : totalDocument ,
       data: Movies,
     })
   } catch (error) {
