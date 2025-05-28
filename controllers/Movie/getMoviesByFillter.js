@@ -45,7 +45,6 @@ const getMoviesByFillter = async (req, res) => {
       success: true,
       error: false,
       message: 'Successfully filltered ✨✨✨',
-      totalDocument : totalDocument ,
       data: Movies,
     })
   } catch (error) {
