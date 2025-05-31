@@ -8,11 +8,13 @@ const getMoviesByGenreController = async (req, res) => {
 
     const movies = await MovieModel.find({ genres: { $in: [genre] } }).skip((pageNumber - 1) * pageSize)
       .limit(pageSize)
+      const total = await MovieModel.countDocuments({ genres: { $in: [genre] } })
 
     if (movies) {
       return res.status(200).json({
         success: true,
         error: false,
+        totalDocument :total ,
         message: 'Successfully get movies on your genre ✨✨✨',
         data: movies,
       })
